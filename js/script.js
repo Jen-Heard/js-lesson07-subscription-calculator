@@ -1,4 +1,3 @@
-// Your JS code here
 var subTypeElement = document.querySelector("#subscription");
 var subDurationElement = document.querySelector("#months");
 var result = document.querySelector(".result");
@@ -12,8 +11,8 @@ subTypeElement.addEventListener("change", function (e) {
 });
 
 subDurationElement.addEventListener("change", function (e) {
-    subDuration = e.target.value;
-    // console.log(Number(subDuration));
+    subDuration = Number(e.target.value);
+    // console.log(subDuration);
     updateSubscriptionDiv();
 });
 
@@ -24,6 +23,8 @@ var updateSubscriptionDiv = function () {
     } else if (subType === "premium") {
         monthlyCost = 10;
     }
+
     var total = subDuration * monthlyCost;
-    result.innerText = `You have chosen a ${subDuration} month ${subType} plan for $${total}.`;
+
+    result.innerText = `You have chosen a ${subDuration} month ${subType} plan for $${total}`;
 };
